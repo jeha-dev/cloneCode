@@ -14,6 +14,9 @@
 
         // 1번째로 알아야할 정보 : 스크롤양 ->스크롤 구간에 따라 달라진다 == 스크롤양에 따라 달라진다
 
+    //현재 스크롤한 수치 가져옴
+    let yOffset = 0;
+
     const sceneInfo = [
         {   //0
             type:'sticky', //type을 정해주는 이유 : scroll될 때 무빙이 다르기 때문
@@ -65,6 +68,20 @@
         }
         console.log(sceneInfo);
     }
+
+    function scrollLoop(){
+        console.log(yOffset); //현재 스크롤한 수치 가져옴
+        // window.pageYOffset 을 그대로 넣으면 오류가 날 수 있기 때문에 값 자체를 변수에 담아서 사용하는 편이 좋다
+
+    }
+
+    window.addEventListener("resize",setLayout); //크기가 줄어들 때 setLayout이 같이 실행되도록
+
+    window.addEventListener("scroll",()=>{
+        //스크롤하면 기본적으로 실행되는 함수
+        yOffset = window.pageYOffset;
+        scrollLoop();
+    });
     setLayout();
 
 })();

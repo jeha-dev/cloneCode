@@ -14,8 +14,10 @@
 
         // 1번째로 알아야할 정보 : 스크롤양 ->스크롤 구간에 따라 달라진다 == 스크롤양에 따라 달라진다
 
-    //현재 스크롤한 수치 가져옴
+    //현재 스크롤한 수치 가져옴 : window.pageYoffset 대신 쓸 변수
     let yOffset = 0;
+    let prevScrollHeight = 0; // 현재 스크롤 위치보다 이전에 위치한 스크롤 섹션들의 스크롤 높이값의 총합
+    let currentScene = 0; // 현재 활성화된(브라우저 안에 들어와 있는) 씬(scroll-section)
 
     const sceneInfo = [
         {   //0
@@ -70,9 +72,21 @@
     }
 
     function scrollLoop(){
-        console.log(yOffset); //현재 스크롤한 수치 가져옴
-        // window.pageYOffset 을 그대로 넣으면 오류가 날 수 있기 때문에 값 자체를 변수에 담아서 사용하는 편이 좋다
+        
+        // 각 섹션의 첫부분이 브라우저의 높이보다 높아지면 다음섹션의 애니메이션이 시작됨
 
+        //내가 활성화시킬 scene의 번호를 결정하기 전에
+        // prev스크롤하이트의 모든 씬의 스크롤 하이트를 더해서 확인
+        for(let i=0; i<sceneInfo.length; i++){
+            prevScrollHeight=0;
+            // prevScrollHeight = prevScrollHeight+sceneInfo[i].scrollHeight;
+            prevScrollHeight += sceneInfo[i].scrollHeight;
+        }
+        console.log(prevScrollHeight);
+        //처음 스크롤 했을 때는 예상수치가 나옴 : 3770*4(section개수)
+        //그런데 스크롤을 멈췄을때 기하급수적으로 수가 늘어나있음 : 스크롤 할 때마다 해당 값들이 초기화가 되지 않기 때문
+        // 내가 콘솔에서 본 값들은 누적값이다
+        //변수를 일단 0으로 설정하는 이유가 초기화였음
     }
 
     window.addEventListener("resize",setLayout); //크기가 줄어들 때 setLayout이 같이 실행되도록

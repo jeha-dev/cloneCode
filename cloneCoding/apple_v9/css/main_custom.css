@@ -94,7 +94,6 @@ p 태그를 세로로 가운데 정렬해야함 */
   margin-bottom:2px;
   height:3em;
   font-size:2.5rem;
-  background:rgba(0,0,0,.3);
 }
 .main-message p {
   line-height:1.2;
@@ -174,6 +173,25 @@ font-size를 rem으로 하면 위 3가지를 fontsize(2rem)의 2em으로 크기�
   color:#fff;
   background:darkorange;
 }
+
+.sticky-elem {
+  display:none;
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  /* 현재 스크롤되는 구간을 받아서 해당 구간에 속한 sticky만 눈에 보이게끔 css처리 */
+}
+
+#show-scene-0 #scroll-section-0 .sticky-elem,
+#show-scene-1 #scroll-section-1 .sticky-elem,
+#show-scene-2 #scroll-section-2 .sticky-elem,
+#show-scene-3 #scroll-section-3 .sticky-elem {
+  display:block;
+  /* 현재 구간이 2일 경우 js로 body에 show-scene-1을 추가해준다 */
+}
+
+
 
 
 /* rem을 쓰는 건 고정값, vw는 변동값(창 크기의 몇%)

@@ -1,0 +1,65 @@
+//  NPM js
+/*
+  dependencies : 웹사이트를 만들 때 필요해서 설치하는 
+모든  라이브러리, 플러그인등(웹페이지를 만들 떄 의존하는 ui들)
+
+이런 dependencies를 해당 사이트를 방문하지 않아도
+다운로드 할 수 있도록 하는 것이 
+node package manager 
+즉 npm
+(비슷하게 bower.io등의 package manager가 있는데 bower는 더이상 업뎃x)
+(bower에서 recommand하는 Yarn이나 Webpack을 사용하면 됨)
+
+
+
+package.json을 만들어서 dependencies 안에 목록화한다
+
+평소에 내가 사용하던 방식은 GUI 방식 : graphic user interface
+<명령 프롬프트 로 파일에 접근>
+node js 설치 -> 윈도우 + r -> cdm입력 -> 명령창 나옴
+-> node 잘 설치되었는지 확인
+-> node --version
+-> c드라이브로 갈 거야
+-> c:
+-> nodetest라는 폴더를 만든다
+-> mkdir nodetest
+-> nodetest파일에 접근
+-> jquery 설치해볼거야
+-> npm install jquery --save 입력후 nodetest 파일을 확인하면
+->node_modules 폴더와 package-lock.json파일 생성됨
+
+-> 이제 yarn을 설치해볼거야
+-> 명령어를 입력할 건데 npm install -g yarn 에서 g라는 옵션이 있음
+-> g의 의미는 global
+-> g가 없고 jquery dist에서 실행된다면 yarn은 dist안에서만 사용할 수 있음
+-> g라는 옵션을 넣어준다면 컴퓨터의 어느 폴더에서든 사용할 수 있음
+-> yarn설치
+-> yarn명령어를 이용해서 package json파일 만들거야
+-> yarn입력
+-> yarn init(얀 초기화)
+-> questions나옴
+-> question repository url : 깃이랑 연결되어있을 때 repo주소 입력하라는 메시지 : 없으면 enter
+-> author에 이름 enter 나머지 넘어가면 success Saved package.json나옴
+-> 다 완성 된 뒤
+-> 프롬프트에서 명령어 추가해볼거야 : yarn add jquery@1.12.4버전 추가해볼거야 (@는 at)
+
+-> 필요한 라이브러리 설치 후 package json 파일만 남기고 다 지워보기
+-> \nodetest>yarn install 입력
+-> 다시 GUI에서 nodetest파일 확인해보면 내가 삭제했던 파일들이 다시 생성되어 있음
+-> package json에 입력된 내용을 기반으로 재설치한 것
+-> 파일에서 한칸 나가는 건    cd..  입력하면 돼
+
+라이브러리가 많아지면 따로 폴더에 넣어서 간단하게 연결될 수 있도록 하는 편이 효율적
+ex. library폴더에 jquery.min, bxslider.min 어쩌고 저쩌고 해서 
+script src="library/jquery.min" 이런 식으로 연결될 수 있게끔 하자
+
+
+
+
+
+
+
+
+
+
+
